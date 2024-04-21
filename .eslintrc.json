@@ -1,8 +1,10 @@
 {
+  // Entorno de ejecución: Navegador y ES2021
   "env": {
     "browser": true,
     "es2021": true
   },
+  // Extendemos las reglas recomendadas de ESLint, React y Prettier
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -10,7 +12,9 @@
     "plugin:react-hooks/recommended",
     "prettier"
   ],
+  // Ignorar ciertos patrones de archivos
   "ignorePatterns": ["dist", "*.eslintrc.json"],
+  // Opciones de análisis del código
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -18,16 +22,33 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
+  // Configuración específica para React
   "settings": {
     "react": {
       "version": "detect"
     }
   },
+  // Plugins utilizados
   "plugins": ["react"],
+  // Reglas personalizadas
   "rules": {
+    // Avisar si hay problemas de indentación
     "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
+    // Avisar si se utilizan comillas diferentes a las simples
     "quotes": ["error", "single"],
-    "semi": ["error", "always"]
+    // Avisar si no se incluyen puntos y coma al final de las sentencias
+    "semi": ["error", "always"],
+    // Avisar si hay variables declaradas pero no utilizadas
+    "no-unused-vars": "warn",
+    // Avisar si se utiliza console.log() u otras funciones de registro
+    "no-console": "warn",
+    // Avisar si se utilizan variables no definidas
+    "no-undef": "warn",
+    // Avisar si no se utiliza const en lugar de let cuando sea posible
+    "prefer-const": "warn",
+    // Avisar si hay expresiones no utilizadas
+    "no-unused-expressions": "warn",
+    // Avisar si falta la definición de PropTypes en componentes de React
+    "react/prop-types": "warn"
   }
 }
